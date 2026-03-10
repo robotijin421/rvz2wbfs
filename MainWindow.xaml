@@ -90,7 +90,7 @@
                         <!-- Empty State Overlay -->
                         <StackPanel VerticalAlignment="Center" Visibility="{Binding Items.Count, Converter={StaticResource CountToVisibilityConverter}}">
                             <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="48" HorizontalAlignment="Center" Foreground="#333"/>
-                            <TextBlock Text="Arrastra tus archivos RVZ aquí" FontSize="16" FontWeight="Light" HorizontalAlignment="Center" Foreground="#555" Margin="0,10"/>
+                            <TextBlock Text="Arrastra tus archivos RVZ o ZIP aquí" FontSize="16" FontWeight="Light" HorizontalAlignment="Center" Foreground="#555" Margin="0,10"/>
                         </StackPanel>
                     </Grid>
                 </Border>

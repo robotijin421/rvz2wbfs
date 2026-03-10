@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
@@ -41,7 +41,8 @@ namespace WiiConverterDesktop
 
                 foreach (var file in files)
                 {
-                    if (System.IO.Path.GetExtension(file).ToLower() == ".rvz")
+                    var ext = System.IO.Path.GetExtension(file).ToLower();
+                    if (ext == ".rvz" || ext == ".zip")
                     {
                         vm.Items.Add(new ConversionItem 
                         { 
