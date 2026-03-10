@@ -1,0 +1,18 @@
+﻿  Determining projects to restore...
+  All projects are up-to-date for restore.
+C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\Services\SettingsService.cs(19,16): warning CS8618: Non-nullable field '_settings' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable. [C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\WiiConverterDesktop_rtnbjrb5_wpftmp.csproj]
+C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\ViewModels\MainViewModel.cs(123,43): warning CS0067: The event 'RelayCommand.CanExecuteChanged' is never used [C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\WiiConverterDesktop_rtnbjrb5_wpftmp.csproj]
+C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\Services\SettingsService.cs(19,16): warning CS8618: Non-nullable field '_settings' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable. [C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\WiiConverterDesktop.csproj]
+C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\ViewModels\MainViewModel.cs(123,43): warning CS0067: The event 'RelayCommand.CanExecuteChanged' is never used [C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\WiiConverterDesktop.csproj]
+  WiiConverterDesktop -> C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\bin\Debug\net10.0-windows\WiiConverterDesktop.dll
+
+Build succeeded.
+
+C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\Services\SettingsService.cs(19,16): warning CS8618: Non-nullable field '_settings' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable. [C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\WiiConverterDesktop_rtnbjrb5_wpftmp.csproj]
+C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\ViewModels\MainViewModel.cs(123,43): warning CS0067: The event 'RelayCommand.CanExecuteChanged' is never used [C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\WiiConverterDesktop_rtnbjrb5_wpftmp.csproj]
+C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\Services\SettingsService.cs(19,16): warning CS8618: Non-nullable field '_settings' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable. [C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\WiiConverterDesktop.csproj]
+C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\ViewModels\MainViewModel.cs(123,43): warning CS0067: The event 'RelayCommand.CanExecuteChanged' is never used [C:\Users\fdelcamino\.gemini\antigravity\scratch\wii-converter-desktop\WiiConverterDesktop.csproj]
+    4 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:04.44

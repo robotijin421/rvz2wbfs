@@ -1,0 +1,113 @@
+<Window x:Class="WiiConverterDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WiiConverterDesktop"
+        xmlns:vm="clr-namespace:WiiConverterDesktop.ViewModels"
+        Title="Wii RVZ to WBFS Converter" Height="650" Width="900"
+        Background="#121212" Foreground="White"
+        WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <local:CountToVisibilityConverter x:Key="CountToVisibilityConverter"/>
+    </Window.Resources>
+    
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Border CornerRadius="12" Background="#1E1E1E" BorderBrush="#333" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title Bar -->
+            <Grid Grid.Row="0" Background="#181818" MouseLeftButtonDown="TitleBar_MouseDown">
+                <TextBlock Text="WII CONVERTER PRO" VerticalAlignment="Center" Margin="15,0" 
+                           FontWeight="Bold" Foreground="#3498db"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" Foreground="White" Width="40" Click="Minimize_Click"/>
+                    <Button Content="" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" Foreground="White" Width="40" Click="Close_Click"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Settings Header -->
+            <StackPanel Grid.Row="1" Margin="20,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Margin="5">
+                        <TextBlock Text="DolphinTool Path" FontSize="10" Foreground="#888" Margin="0,0,0,3"/>
+                        <TextBox Text="{Binding DolphinPath, UpdateSourceTrigger=PropertyChanged}" Background="#2A2A2A" Foreground="White" BorderThickness="0,0,0,1" BorderBrush="#555" Padding="5"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="5">
+                        <TextBlock Text="wit.exe Path" FontSize="10" Foreground="#888" Margin="0,0,0,3"/>
+                        <TextBox Text="{Binding WitPath, UpdateSourceTrigger=PropertyChanged}" Background="#2A2A2A" Foreground="White" BorderThickness="0,0,0,1" BorderBrush="#555" Padding="5"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Margin="5">
+                        <TextBlock Text="Output Directory" FontSize="10" Foreground="#888" Margin="0,0,0,3"/>
+                        <TextBox Text="{Binding OutputPath, UpdateSourceTrigger=PropertyChanged}" Background="#2A2A2A" Foreground="White" BorderThickness="0,0,0,1" BorderBrush="#555" Padding="5"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <!-- Main List / Drop Area -->
+            <Grid Grid.Row="2" Margin="20,10">
+                <Border CornerRadius="10" Background="#181818" BorderBrush="#333" BorderThickness="1" 
+                        AllowDrop="True" Drop="DropArea_Drop" DragOver="DropArea_DragOver">
+                    <Grid>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding Items}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="10,5" Padding="15" Background="#252525" CornerRadius="8">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding FileName}" FontSize="14" FontWeight="SemiBold"/>
+                                                    <TextBlock Text="{Binding Status}" FontSize="11" Foreground="#3498db" Margin="0,5,0,0"/>
+                                                    <ProgressBar Value="{Binding Progress}" Height="4" Margin="0,8,0,0" Background="#111" Foreground="#3498db" BorderThickness="0"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+
+                        <!-- Empty State Overlay -->
+                        <StackPanel VerticalAlignment="Center" Visibility="{Binding Items.Count, Converter={StaticResource CountToVisibilityConverter}}">
+                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="48" HorizontalAlignment="Center" Foreground="#333"/>
+                            <TextBlock Text="Arrastra tus archivos RVZ aquí" FontSize="16" FontWeight="Light" HorizontalAlignment="Center" Foreground="#555" Margin="0,10"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Footer / Action -->
+            <StackPanel Grid.Row="3" Margin="20,20">
+                <Button Command="{Binding ConvertCommand}" Content="CONVERTIR A WBFS" Height="50" FontSize="16" FontWeight="Bold" Background="#3498db" Foreground="White" BorderThickness="0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
